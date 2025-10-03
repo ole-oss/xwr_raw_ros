@@ -64,6 +64,7 @@ source devel/setup.bash
 ```
 7. (Optional) Copy udev rule files under `udev` to `/etc/udev/rules.d` and run 
 ```bash
+sudo cp ~/catkin_ws/src/xwr_raw_ros/udev/* /etc/udev/rules.d
 sudo udevadm control --reload-rules
 sudo usermod -a -G dialout $USER
 ```
