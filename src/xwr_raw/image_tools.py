@@ -359,3 +359,17 @@ def normalize_and_color(data, min_val=None, max_val=None, cmap=cv2.COLORMAP_TURB
     img = cv2.applyColorMap(img, cmap)
     return img
 
+def waveform_disp(data):
+    h, w = 300, data.shape[0]
+    canv = np.ones((h, w, 3),dtype=np.uint8) * 255
+
+    #norm arr vaules
+    y_cent = h//2
+    scaled = np.int32(y_cent - data)
+
+    #draw lines between points
+    for x in range(1, w):
+        cv2.line(canv, (x-1, scaled[x-1]), (x,scaled[x]), (255,0,0), 1)
+
+    return canv
+
