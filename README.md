@@ -47,7 +47,7 @@ mkdir -p ~/catkin_ws/src
 ```
 3. Clone repository.
 ```bash
-cd ~/catkin_ws/src && git clone https://github.com/ole-oss/xwr_raw.git
+cd ~/catkin_ws/src && git clone https://github.com/ole-oss/xwr_raw_ros.git
 ```
 4. Install ROS and Python dependencies.
 ```bash
