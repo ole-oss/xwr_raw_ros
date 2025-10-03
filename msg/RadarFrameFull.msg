@@ -11,6 +11,8 @@ float32 velocity_res
 float32 sample_rate
 float32 range_max
 float32 range_res
+float32 n_samples
+float32 operating_freq
 uint8[] rx
 uint8[] tx
 uint32[] shape
