@@ -180,6 +180,7 @@ class RadarConfig(OrderedDict):
             ('tx', tx),
             ('n_tx', n_tx),
             ('n_samples', n_samples),
+            ('operating_freq', operating_freq),
             ('frame_size', frame_size),
             ('frame_time', frame_time),
             ('chirp_time', chirp_time),
