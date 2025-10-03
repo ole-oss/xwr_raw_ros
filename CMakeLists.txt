@@ -54,6 +54,7 @@ add_message_files(
   RadarFrame.msg
   RadarFrameStamped.msg
   RadarFrameFull.msg
+  RangeOut.msg
 )
 
 ## Generate services in the 'srv' folder
