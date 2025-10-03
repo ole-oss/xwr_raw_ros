@@ -98,6 +98,9 @@ if __name__ == '__main__':
                          radar_params['n_rx'],
                          radar_params['n_samples'])
 
+            msg.n_samples = radar_params['n_samples']
+            msg.operating_freq = radar_params['operating_freq']
+
             msg.data = frame_data
 
             publisher.publish(msg)
