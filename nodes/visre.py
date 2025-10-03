@@ -25,8 +25,9 @@ import xwr_raw.image_tools as image_tools
 
 
 def vis_range_elevation(args, frame):
+        ax.clear()
         RANGE_MAX = frame.range_max
-        xaxis = np.linspace(-(RANGE_MAX), RANGE_MAX, frame.n_samples)
+        xaxis = np.linspace(-(RANGE_MAX), RANGE_MAX, int(frame.n_samples))
 
         if not hasattr(vis_range_elevation, 'radar_cubes'):
             vis_range_elevation.radar_cubes = deque(maxlen=3)
@@ -107,6 +108,8 @@ def vis_range_elevation(args, frame):
 
         # print(range_elevation.shape)
         ax.pcolormesh(range_elevation, shading='auto')
+        plt.draw()
+        plt.pause(0.01)
 
 
         img = image_tools.polar2cartesian(
@@ -168,6 +171,7 @@ if __name__ == '__main__':
 
     # fig, ax = plt.figure()
     fig, ax = plt.subplots()
+    plt.ion()
     ax.set_title('Range-Elevation')
     ax.set_xlabel('Azimuth Angle')
     ax.set_ylabel('Elevation Angle')
@@ -178,7 +182,8 @@ if __name__ == '__main__':
                                         numpy_msg(RadarFrameFull),
                                         lambda frame: vis_range_elevation(args, frame),
                                         queue_size=1)
+
+    # fig.canvas.draw()
+    # plt.pause(0.001)
     rospy.spin()
 
-    fig.canvas.draw()
-    plt.pause(0.001)
